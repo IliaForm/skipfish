@@ -1,7 +1,7 @@
-<h1>Edit My Account</h1>
+<h1>Edit site</h1>
 
-<% form_for @user, :url => account_path do |f| %>
-  <%= @user.errors.full_messages.first%>
+<% form_for @site do |f| %>
+  <%= @site.errors.full_messages.first%>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Update" %>
 <% end %>

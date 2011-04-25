@@ -10,7 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110415180729) do
+ActiveRecord::Schema.define(:version => 20110422080155) do
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id"
@@ -22,17 +37,30 @@ ActiveRecord::Schema.define(:version => 20110415180729) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "sites", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "status"
+    t.string   "token"
+    t.text     "result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sites", ["user_id"], :name => "index_sites_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "login_count"
+    t.integer  "login_count"
     t.datetime "last_request_at"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
+    t.integer  "chances",           :default => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end

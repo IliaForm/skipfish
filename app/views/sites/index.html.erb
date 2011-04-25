@@ -1,0 +1,12 @@
+<ul>
+<% for site in @sites do %>
+<li> <%=site.url%> 
+	<%= link_to 'Show site', site_path(:id=>site.id)%>
+<%= link_to "Delete site", { :action => "destroy", :id => site.id },
+          :confirm => "Are you sure?", :method => :delete %>
+
+
+</li>
+<%end%>
+</ul>
+<%= link_to 'Add site', new_site_path%>

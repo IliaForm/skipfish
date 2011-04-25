@@ -3,5 +3,12 @@ class User < ActiveRecord::Base
   validates :login,               :presence => true, :uniqueness => true
   validates :crypted_password,    :presence => true
   validates :password_salt,       :presence => true        
-  has_many :user_session, :dependent =>:destroy
-end
+  has_many :user_session,         :dependent =>:destroy
+  has_many :sites,                :dependent =>:destroy
+ 
+  def reduce_chances
+    self.chances-=1
+  end
+
+end   
+

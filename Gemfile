@@ -7,6 +7,8 @@ gem 'rails', '3.0.6'
 
 gem 'mysql2'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+gem 'httparty'
+gem 'delayed_job'
 
 # Use unicorn as the web server
 # gem 'unicorn'

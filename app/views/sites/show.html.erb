@@ -1,0 +1,25 @@
+<p>
+  <b>User:</b>
+  <%= @site.user.login %>
+</p>
+<p>
+  <b>url:</b>
+  <%= @site.url %> <%= link_to 'Edit', edit_site_path(:id=>@site.id)%><!--edit_site_path(:id=>@site.id)%>!-->
+
+</p>
+
+<p>
+  <b>Site status:</b>
+  <%= @site.status %>
+  <% unless @site.checked? %> <br> Для проверки сайта, пожалуйста положите в корень проекта файл с именем fish.txt и содержимым: <%=@site.token%>
+  <%= button_to 'Check', check_site_path(:id=>@site.id),  :method => :put%> <%end%> 
+  
+</p>
+
+<!--<p>
+  <b>Result:</b>
+  <%= @site.result %>
+</p>!-->
+
+<% if @site.checked? %> <%= button_to 'Start', start_site_path(:id=>@site.id),  :method => :put%> <%end%> 
+

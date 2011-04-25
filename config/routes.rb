@@ -1,9 +1,10 @@
 Fish::Application.routes.draw do
- # resources :user_sessions
+  resources :sites do 
+   put :check, :on => :member
+   put :start, :on => :member
+  end
 
- # resources :users
   resource :account, :controller => "users"
-  resources :users
   resource :user_session
   root :to => "user_sessions#new"
   # The priority is based upon order of creation:

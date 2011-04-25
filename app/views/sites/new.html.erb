@@ -1,0 +1,7 @@
+<h1>Add site</h1>
+
+<% form_for @site do |f| %>
+  <%= @site.errors.full_messages.first %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Add" %>
+<% end %>
