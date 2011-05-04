@@ -1,2 +1,5 @@
 <%= form.label :url %><br />
 <%= form.text_field :url %><br />
+<%= form.label :'Выберите тип проверки' %><br />
+<!--<%= form.text_field :slovar %><br />-->
+ <%= form.select :slovar, [["Нормальная","minimal"], ["Тщательная","medium"], ["Очень тщательная", "complete"]]%>

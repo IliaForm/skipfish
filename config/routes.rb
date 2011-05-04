@@ -1,7 +1,9 @@
-Fish::Application.routes.draw do
+﻿Fish::Application.routes.draw do
   resources :sites do 
    put :check, :on => :member
    put :start, :on => :member
+   get :result, :on => :member
+   get :final, :on => :member
   end
 
   resource :account, :controller => "users"

@@ -1,4 +1,4 @@
-#require 'open-uri'
+﻿#require 'open-uri'
 class SitesController < ApplicationController
 	before_filter :require_user
     
@@ -62,7 +62,19 @@ class SitesController < ApplicationController
   def start
     @site = @current_user.sites.find params[:id]
     @site.skipfish
-    render :action => :resultat
-    #redirect_back_or_default resultat(:id=>@site.id)
+    flash[:notice]='Проверка выполняется, ожидайте результата'
+    redirect_to sites_url
+  end
+  
+  def result
+  	@site = @current_user.sites.find params[:id]
+  	render :update do |page|
+   	  page[:result].update simple_format(@site.last_result)
+    end	
+  end	
+  
+  def final
+  	@site = @current_user.sites.find params[:id] 
+  	render :layout => false
   end
  end

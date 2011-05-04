@@ -1,0 +1,4 @@
+[1;31m[-]  SYSTEM ERROR : [1;37mUnable to access 'assets/index.html' - wrong directory?[1;31m
+    Stop location : [0;37mmain(), skipfish.c:443
+[1;31m       OS message [0;37m: No such file or directory
+[0mskipfish version 1.86b by <lcamtuf@google.com>

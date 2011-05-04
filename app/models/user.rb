@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+﻿class User < ActiveRecord::Base
   acts_as_authentic
   validates :login,               :presence => true, :uniqueness => true
   validates :crypted_password,    :presence => true

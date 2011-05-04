@@ -1,7 +1,7 @@
 <h1>Add site</h1>
-
+<p>Cайт должен начинаться с http://</p>
 <% form_for @site do |f| %>
   <%= @site.errors.full_messages.first %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Add" %>
-<% end %>
+<% end%>

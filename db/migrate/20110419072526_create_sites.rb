@@ -1,4 +1,4 @@
-class CreateSites < ActiveRecord::Migration
+﻿class CreateSites < ActiveRecord::Migration
   def self.up
     create_table :sites do |t|
       t.references :user
@@ -6,7 +6,7 @@ class CreateSites < ActiveRecord::Migration
       t.string :status
       t.string :token
       t.text :result
-
+      t.string :slovar
       t.timestamps
     end
     add_index :sites,:user_id

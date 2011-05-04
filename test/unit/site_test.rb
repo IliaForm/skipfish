@@ -1,4 +1,4 @@
-require 'test_helper'
+﻿require 'test_helper'
 
 class SiteTest < ActiveSupport::TestCase
   # Replace this with your real tests.
