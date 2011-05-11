@@ -1,0 +1,3 @@
+(in /home/ilia/fish)
+[Worker(host:ilia-UL30JT pid:2626)] Starting job worker
+[Worker(host:ilia-UL30JT pid:2626)] Exiting...

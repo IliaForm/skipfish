@@ -13,21 +13,21 @@
 
 <p>
   <b>Site status:</b>
-  <%= @site.status %>
+ <span id="status"> <%= @site.status %></span>
   <% if @site.ready_to_check? %> 
     <br> Для проверки сайта, пожалуйста положите в корень проекта файл с именем fish.txt и содержимым: <%=@site.token%>
     <%= button_to 'Check', check_site_path(:id=>@site.id),  :method => :put%> 
   <%end%>
   
 </p>
-<b>результат:</b>
-<% if @site.ready_to_view_result? %>
-  <%= link_to 'результат', final_site_path(:id=>@site.id)%>
- <% end%> 
-<br>  <br>
+<!--<b>результат:</b>
+<% #if @site.ready_to_view_result? %>
+  <%#= link_to 'результат', final_site_path(:id=>@site.id)%>
+ <%# end%> -->
 
-  <% #if @site.ready_to_start? %>
-   <%= button_to 'Start', start_site_path(:id=>@site.id),  :method => :put, :remote => true %> 
+
+ <% #if @site.ready_to_start? %>
+   <%= button_to 'Start', start_site_path(:id=>@site.id), :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put, :remote => true %> 
   <%#end%>
 <div id="result"></div>
 <%= periodically_call_remote  :method => :get, :url => result_site_path(:id=>@site.id), :frequency => 1%>

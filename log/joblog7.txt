@@ -1,0 +1,6 @@
+(in /home/ilia/fish)
+[Worker(host:ilia-UL30JT pid:2618)] Starting job worker
+"testing"
+3
+[Worker(host:ilia-UL30JT pid:2618)] Exiting...
+[Worker(host:ilia-UL30JT pid:2618)] Site#skipfish_without_delay failed with ActiveRecord::StatementInvalid: Mysql2::Error: MySQL server has gone away: UPDATE `sites` SET `result` = '', `status` = 'tested', `updated_at` = '2011-05-06 04:47:27' WHERE `sites`.`id` = 3 - 0 failed attempts

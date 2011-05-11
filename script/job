@@ -1,1 +1,1 @@
-100.times{ `rake jobs:work &` }
+10.times{|i| `rake jobs:work>log/joblog#{i}.txt &` }

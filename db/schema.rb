@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110422080155) do
+ActiveRecord::Schema.define(:version => 20110511051449) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110422080155) do
     t.integer  "chances",           :default => 5
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "balance",           :default => 0.0
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"

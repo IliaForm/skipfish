@@ -66,13 +66,14 @@ class SitesController < ApplicationController
     redirect_to sites_url
   end
   
+	
   def result
-  	@site = @current_user.sites.find params[:id]
-  	render :update do |page|
-   	  page[:result].update simple_format(@site.last_result)
-    end	
-  end	
-  
+   @site = @current_user.sites.find params[:id]
+   render :update do |page|
+   	 page[:status].update @site.status
+     page[:result].update @site.status == 'tested' ? link_to( 'результат', final_site_path(:id=>@site.id) ) : simple_format(@site.last_result)
+   end 
+  end
   def final
   	@site = @current_user.sites.find params[:id] 
   	render :layout => false

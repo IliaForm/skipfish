@@ -3,10 +3,14 @@
   <%= @user.login %>
 </p>
 <p>
-  <b>id user:</b>
-  <%= @user.id %>
+  <b>Баланс:</b>
+  <%= @user.balance %>
 </p>
 
+<p>
+  <b>Попытки:</b>
+  <%= @user.chances %>
+</p>
 <!--<p>
   <b>Login count:</b>
   <%= @user.login_count %>
@@ -20,7 +24,8 @@
 <%end%>
 </ul>
 </p>
-
+<%= button_to 'Внести платёж', pay_account_path, :method => :get%>
+<%= button_to 'купить попытку', buy_chances_account_path, :method => :put%>
  <!--<p>
  <b>Last request at:</b>
   <%= @user.last_request_at %>

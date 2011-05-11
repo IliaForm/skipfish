@@ -42,7 +42,7 @@
   handle_asynchronously :skipfish
   
   def ready_to_start?
-    status == 'checked' or status == 'tested' 
+    status == 'checked' or status == 'tested'
   end  
   
   def ready_to_view_result?
@@ -60,7 +60,10 @@
   rescue
  	nil
   end
-   	
+  
+  def testing?
+    status == 'testing'
+  end  
   def ready_to_check?
   	status == 'pending' or status == 'incorrect'
   end
