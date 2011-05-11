@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   	if @user.save
   	 flash[:notice] ='Попытки приобртены!'
   	else 
-  	 flash[:notice] ='Преобретение не возможно!'
+  	 flash[:notice] ='Покупка невозможна! Пополните Ваш баланс.'
   	end 
   	redirect_to account_url
   end
