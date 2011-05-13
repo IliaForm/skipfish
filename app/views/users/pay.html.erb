@@ -1,13 +1,21 @@
 <form action="http://www.onlinedengi.ru/wmpaycheck.php" method="post">
-<input type="hidden" name="project" value="">
-<input type="hidden" name="source" value="">
+<input type="hidden" name="project" value="508">
+<input type="hidden" name="source" value="scalaxy">
 <input type="hidden" name="order_id" value="">
-Ваш ник: <input type="text" name="nickname" value="">
+Ваш ник: <input type="hidden" skype:warpcvname="nickname" value="<%=@current_user.id%>">
 Сумма к оплате, в валюте платёжной системы: <input type="text" name="amount" value="">
 Способ оплаты: <select name="mode_type">
-<option value="4">WebMoney WMB</option>
-<option value="3">WebMoney WME</option>
+<option value="2">WebMoney</option>
+<option value="7">Yandex деньги</option>
 <option value="8">Банковские карты</option>
+<option value="9">WebMoney WME</option>
+<option value="10">Карты Webmoney</option>
+<option value="14">QIWI Кошелек</option>
+<option value="39">Мобильный Платеж Мегафон</option>
+<option value="45">Мобильный Платеж Билайн</option>
+<option value="46">Альфа-Банк</option>
+<option value="48">ВТБ24</option>
+<option value="50">Мобильный Платеж МТС</option>
 
 </select>
 <input type="submit" value="Оплатить!">

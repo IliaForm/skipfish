@@ -8,11 +8,14 @@
 
   resource :account, :controller => "users" do
   	post :identificate, :on => :collection
-  	post :success_payment, :on => :collection
-  	post :failed_payment, :on => :collection
+    post :success_payment, :on => :collection
   	put :buy_chances, :on => :member
   	get :pay, :on => :member
+ 	#match '/payment/(userid=:userid)&(key=:key)', :to => 'users#identificate', :via => :get
+  	#match '/payment/(amount=:amount)&(userid=:userid)&(paymentid=:paymentid)&(key=:key)', :to => 'users#success_payment', :via => :get
+
   end
+
   resource :user_session
   root :to => "user_sessions#new"
   # The priority is based upon order of creation:

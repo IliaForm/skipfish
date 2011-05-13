@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
+    flash[:notice] = params[:message]
   end
 
   def edit
@@ -53,12 +54,12 @@ class UsersController < ApplicationController
   end
   
   def create_md5 amount='0', paymentid='0'
-  	secretkey='58fjr07t34y50t73450t308rthpguctgn9i'	
+  	secretkey='eO6n2SIgu6QX4XE80NZvegbPjXBNt28C6uG'	
 	Digest::MD5.new(amount+params[:userid]+paymentid+secretkey)
   end
   
+  
   def identificate 	
-  	logger.debug create_md5
   	if create_md5 == params[:key]
   	 builder = Nokogiri::XML::Builder.new do |xml|
       xml.result {
@@ -69,7 +70,7 @@ class UsersController < ApplicationController
     else 
      builder = Nokogiri::XML::Builder.new do |xml|
       xml.result {
-        xml.code "No"
+        xml.code "NO"
       }   
      end 
      render :xml => builder.to_xml
@@ -78,7 +79,7 @@ class UsersController < ApplicationController
   	
   
   def success_payment
-  	if create_md5(params[:amount], params[:paymentid])== params[:key]
+  	if create_md5(params[:amount], params[:paymentid]) == params[:key]
   	  @user=User.find params[:userid]
   	  @user.balance+=params[:amount].to_f
   	   builder = Nokogiri::XML::Builder.new do |xml|
@@ -101,9 +102,6 @@ class UsersController < ApplicationController
   	end  	
   end
   
-  def failed_payment
-  	render :nothing=>true
-  end
 end
 
 

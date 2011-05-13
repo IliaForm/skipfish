@@ -20,18 +20,17 @@
 
   def skipfish
   	self.status = 'testing'
-    p status
+    p status, id
     save!
-    #return false if user.chances<1
-    path="/home/ilia/skipfish#{id}"
+    return false if user.chances<1
+    path="#{Rails.root}/../../shared/sites/#{id}"
     `mkdir -p #{path}`
-    p id
-    `cd #{path}/.. && cp -rf skipfish-1.86b/* skipfish#{id}`
+    `cd #{path}/../../ && cp -rf program/* sites/#{id}`
     results="#{path}/results"
     `rm -rf #{results}`
     `mkdir -p #{results}`  
    	`cd #{path} && cp dictionaries/#{slovar}.wl skipfish.wl`
-    `cd #{path} && ./skipfish -o results #{url} > ./skipfish#{id}.log`
+    `cd #{path} && ./skipfish -o results #{url} > skipfish#{id}.log`
     self.result = `cat #{results}/index.html`
     self.status = 'tested'
     save!

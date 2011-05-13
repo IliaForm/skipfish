@@ -1,7 +1,3 @@
 (in /home/ilia/fish)
-[Worker(host:ilia-UL30JT pid:2602)] Starting job worker
-"testing"
-2
-[Worker(host:ilia-UL30JT pid:2602)] Site#skipfish_without_delay completed after 162.1705
-[Worker(host:ilia-UL30JT pid:2602)] 1 jobs processed at 0.0062 j/s, 0 failed ...
-[Worker(host:ilia-UL30JT pid:2602)] Exiting...
+[Worker(host:ilia-UL30JT pid:4668)] Starting job worker
+[Worker(host:ilia-UL30JT pid:4668)] Exiting...
