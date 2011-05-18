@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
+    if params[:message].present?
      flash[:notice] = params[:message]
+    end 
   end
 
   def edit

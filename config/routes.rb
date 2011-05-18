@@ -10,7 +10,7 @@
   	post :identificate, :on => :collection
     post :success_payment, :on => :collection
   	put :buy_chances, :on => :member
-  	get :pay, :on => :member
+  	post :pay, :on => :member
  	#match '/payment/(userid=:userid)&(key=:key)', :to => 'users#identificate', :via => :get
   	#match '/payment/(amount=:amount)&(userid=:userid)&(paymentid=:paymentid)&(key=:key)', :to => 'users#success_payment', :via => :get
 
