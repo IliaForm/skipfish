@@ -22,7 +22,7 @@
   	self.status = 'testing'
     p status, id
     save!
-    return false if user.chances<1
+    #return false if user.chances<1
     path="#{Rails.root}/../../shared/sites/#{id}"
     `mkdir -p #{path}`
     `cd #{path}/../../ && cp -rf program/* sites/#{id}`
@@ -49,7 +49,8 @@
   end
   
   def last_result
-  	file="/home/ilia/skipfish#{id}/skipfish#{id}.log"
+  	#file="/home/ilia/skipfish#{id}/skipfish#{id}.log"
+  	file="#{Rails.root}/../../shared/sites/#{id}/skipfish#{id}.log"
   	return unless File.exists?(file)
   	f=File.open(file)
   	f.seek(-4000, IO::SEEK_END)
