@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   	@user=@current_user
   	@user.balance-=100
   	@user.chances+=1
+  	p @user.id
   	if @user.save
   	 flash[:notice] ='Попытки приобртены!'
   	else 
