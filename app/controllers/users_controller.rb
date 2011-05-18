@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new params[:user]
+    @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Account registered!"
       redirect_back_or_default account_url
@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
-    flash[:notice] = params[:message]
+    if params[:message].present?
+     flash[:notice] = params[:message]
+    end 
   end
 
   def edit
