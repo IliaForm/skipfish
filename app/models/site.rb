@@ -25,7 +25,8 @@
     #return false if user.chances<1
     path="#{Rails.root}/../../shared/sites/#{id}"
     `mkdir -p #{path}`
-    `cd #{path}/../../ && cp -rf program/* sites/#{id}`
+    p id
+    `cd #{path}/../../ && cp -rf skipfish-1.86b/* sites/#{id}`
     results="#{path}/results"
     `rm -rf #{results}`
     `mkdir -p #{results}`  
@@ -50,7 +51,7 @@
   
   def last_result
   	#file="/home/ilia/skipfish#{id}/skipfish#{id}.log"
-  	file="#{Rails.root}/../../shared/sites/#{id}/skipfish#{id}.log"
+  	file="#{Rails.root}/../../shared/sites/#{id}"
   	return unless File.exists?(file)
   	f=File.open(file)
   	f.seek(-4000, IO::SEEK_END)
