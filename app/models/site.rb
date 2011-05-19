@@ -30,7 +30,7 @@
     results="#{path}/results"
     `rm -rf #{results}`
     `mkdir -p #{results}`  
-   	`cd #{path}/skipfish-1.86b && cp dictionaries/#{slovar}.wl skipfish.wl`
+   	`cd #{path} && cp dictionaries/#{slovar}.wl skipfish.wl`
     `cd #{path} && ./skipfish -o results #{url} > skipfish#{id}.log`
     self.result = `cat #{results}/index.html`
     self.status = 'tested'
@@ -51,7 +51,7 @@
   
   def last_result
   	#file="/home/ilia/skipfish#{id}/skipfish#{id}.log"
-  	file="#{Rails.root}/../../shared/sites/#{id}/skipfish#{id}.log"
+  	file="#{Rails.root}/../../shared/sites/#{id}"
   	return unless File.exists?(file)
   	f=File.open(file)
   	f.seek(-4000, IO::SEEK_END)
