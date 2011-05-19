@@ -51,7 +51,7 @@
   
   def last_result
   	#file="/home/ilia/skipfish#{id}/skipfish#{id}.log"
-  	file="#{Rails.root}/../../shared/sites/#{id}"
+  	file="#{Rails.root}/../../shared/sites/#{id}/skipfish#{id}.log"
   	return unless File.exists?(file)
   	f=File.open(file)
   	f.seek(-4000, IO::SEEK_END)
