@@ -20,9 +20,9 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
-    if params[:message].present?
-     flash[:notice] = params[:message]
-    end 
+    #if params[:message].present?
+     #flash[:notice] = params[:message]
+    #end 
   end
 
   def edit
@@ -89,8 +89,8 @@ class UsersController < ApplicationController
   	   builder = Nokogiri::XML::Builder.new do |xml|
       xml.result {
         xml.id 
+        xml.code "YES"
         xml.comment "Платёж произведён успешно"
-        xml.course
       }    
       end
       render :xml => builder.to_xml
@@ -98,8 +98,8 @@ class UsersController < ApplicationController
   	  builder = Nokogiri::XML::Builder.new do |xml|
       xml.result {
         xml.id 
+        xml.code "NO"
         xml.comment "Платёж не удался"
-        xml.course
       }
       end
       render :xml => builder.to_xml

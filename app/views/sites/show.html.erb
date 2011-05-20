@@ -4,7 +4,7 @@
 </p>
 <p>
   <b>url:</b>
-  <%= @site.url %> <%= link_to 'Edit', edit_site_path(:id=>@site.id)%><!--edit_site_path(:id=>@site.id)%>-->
+  <%= @site.url %> <%= button_to 'Edit', edit_site_path(:id=>@site.id), %><!--edit_site_path(:id=>@site.id)%>-->
 </p>
 <p> 
   <b>Тип проверки:</b>
