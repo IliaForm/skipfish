@@ -9,7 +9,7 @@
 
 <p>
   <b>Попытки:</b>
-  <%= @user.chances %>
+  <%= @user.chances %> <%= link_to 'Купить попытку', buy_chances_account_path, :method => :put%>
 </p>
 <!--<p>
   <b>Login count:</b>
@@ -18,14 +18,18 @@
 
 <p>
   <b> <%=@user.login %> sites:</b>
-  <ul>
+ <%if @user.sites.blank?%>
+<p>У Вас пока нет сайтов</p>
+<%end%> 
+<ul>
 <% for site in @user.sites do %>
 <li> <%=site.url%> </li>
 <%end%>
 </ul>
+<%= link_to 'Add site', new_site_path%>
 </p>
 <%= button_to 'Пополнить баланс', pay_account_path, :method => :get%>
-<%= button_to 'Купить попытку', buy_chances_account_path, :method => :put%>
+
  <!--<p>
  <b>Last request at:</b>
   <%= @user.last_request_at %>

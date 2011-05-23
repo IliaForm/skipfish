@@ -33,7 +33,7 @@ class SitesController < ApplicationController
    @site = @current_user.sites.find params[:id] # makes our views "cleaner" and more consistent
    if @site.update_attributes params[:site]
      flash[:notice] = "Site updated!"
-     redirect_to sites_url
+     redirect_to @site 
    else
      render :action => :edit
    end
