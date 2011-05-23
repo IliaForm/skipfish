@@ -28,7 +28,7 @@
 
 
  <% #if @site.ready_to_start? %>
-   <%= button_to 'Start', start_site_path(:id=>@site.id), :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put, :remote => true %> 
+   <%= button_to 'Start', start_site_path(:id=>@site.id), :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put %> 
   <%#end%>
 <div id="result"></div>
 <%= periodically_call_remote  :method => :get, :url => result_site_path(:id=>@site.id), :frequency => 1%>
