@@ -63,7 +63,7 @@ class SitesController < ApplicationController
     @site = @current_user.sites.find params[:id]
     @site.skipfish
     flash[:notice]='Проверка выполняется, ожидайте результата'
-    redirect_to sites_url
+    redirect_to @site
   end
   
 	
