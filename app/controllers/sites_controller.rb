@@ -1,12 +1,7 @@
 ﻿#require 'open-uri'
 class SitesController < ApplicationController
 	before_filter :require_user
-    
-  def index
-   @sites = @current_user.sites
-
- end
-   
+       
  def new
    @site = @current_user.sites.new
  end
@@ -22,8 +17,7 @@ class SitesController < ApplicationController
  end
  
  def edit
-   @site = @current_user.sites.find params[:id]
-   
+   @site = @current_user.sites.find params[:id] rescue return render :template => '/shared/403' 
  end
  
  def show
