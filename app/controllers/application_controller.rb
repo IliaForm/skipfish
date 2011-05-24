@@ -46,6 +46,9 @@ class ApplicationController < ActionController::Base
     def not_found
     	render :template => '/shared/404'
     end
-
+    
+    def not_found1
+    	render :template => '/shared/403'
+    end
 end
 
