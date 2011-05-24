@@ -1,11 +1,8 @@
-<p>
-  <b>User:</b>
-  <%= @site.user.login %>
-</p>
+
 <p>
   <b>url:</b>
   
-  <%= @site.url %><% unless @site.testing?%> <%= link_to 'Edit', edit_site_path(:id=>@site.id)%><%end%>
+  <%= @site.url %>
 </p>
 <p> 
   <b>Тип проверки:</b>

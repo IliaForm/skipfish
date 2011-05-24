@@ -23,10 +23,11 @@ class SitesController < ApplicationController
  
  def edit
    @site = @current_user.sites.find params[:id]
+   
  end
  
  def show
-   @site = @current_user.sites.find params[:id]
+   @site = @current_user.sites.find params[:id] rescue return render :template => '/shared/404'
  end
  
   def update

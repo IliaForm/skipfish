@@ -42,5 +42,10 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
+    
+    def not_found
+    	render :template => '/shared/404'
+    end
+
 end
 
