@@ -75,5 +75,4 @@
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   match '*anything' => 'application#not_found', :code => 404
-  match '*anything' => 'application#not_found1', :code => 403
 end

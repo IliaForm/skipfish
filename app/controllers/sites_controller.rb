@@ -1,7 +1,19 @@
 ﻿#require 'open-uri'
 class SitesController < ApplicationController
-	before_filter :require_user
-       
+	before_filter :require_user    
+    before_filter :find_site, :only => [:edit, :show, :destroy]
+    before_filter :allow_to_edit, :only => :edit
+    
+ def find_site
+  @site = current_user.sites.find params[:id] rescue render :template => 'shared/404'
+ end
+ 
+ def allow_to_edit
+   if @site.status == 'testing' 
+   render :template => '/shared/403'
+   end
+ end 
+ 
  def new
    @site = @current_user.sites.new
  end
@@ -17,15 +29,13 @@ class SitesController < ApplicationController
  end
  
  def edit
-   @site = @current_user.sites.find params[:id] rescue return render :template => '/shared/403' 
  end
  
  def show
-   @site = @current_user.sites.find params[:id] rescue return render :template => '/shared/404'
  end
  
   def update
-   @site = @current_user.sites.find params[:id] # makes our views "cleaner" and more consistent
+   @site = @current_user.sites.find params[:id] 
    if @site.update_attributes params[:site]
      flash[:notice] = "Site updated!"
      redirect_to @site 
@@ -35,11 +45,10 @@ class SitesController < ApplicationController
  end
  
  def destroy
-  @site = @current_user.sites.find params[:id]
   @site.destroy
      flash[:notice] = "Site deleted!"
      #render :action => :index
-     redirect_back_or_default sites_url
+     redirect_back_or_default account_url
  end
  
   def check

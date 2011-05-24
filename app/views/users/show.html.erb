@@ -25,7 +25,7 @@
 <% for site in @user.sites do %>
 <li> <%=site.url%> <%= link_to 'Show site', site_path(:id=>site.id)%>
 	<% unless site.testing?%> <%= link_to 'Edit', edit_site_path(:id=>site.id)%><%end%>
-<%= link_to "Delete site", { :action => "destroy", :id => site.id },
+<%= link_to "Delete site", site,
           :confirm => "Are you sure?", :method => :delete %> <br>Статус: <%=site.status%></li>
 <%end%>
 </ul>
