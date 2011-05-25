@@ -28,6 +28,7 @@
     p id
     `cd #{path}/../../ && cp -rf skipfish-1.86b/* sites/#{id}`
     results="#{path}/results"
+    `cd #{path}/`
     `rm -rf #{results}`
     `mkdir -p #{results}`  
    	`cd #{path} && cp dictionaries/#{slovar}.wl skipfish.wl`
