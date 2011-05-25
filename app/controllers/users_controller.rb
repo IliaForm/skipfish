@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   
   
   def identificate 	
-  	Rails.logger.debug create md5.inspect
+  	Rails.logger.debug create_md5.inspect
   	Rails.logger.debug params[:key].inspect
   	if create_md5 == params[:key]
   	 builder = Nokogiri::XML::Builder.new do |xml|
