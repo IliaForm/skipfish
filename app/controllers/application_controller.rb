@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   helper :all
   helper_method :current_user_session, :current_user
   
-
+    
+    def not_found
+    	render :template => '/shared/404'
+    end
+  
   private
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
@@ -43,10 +47,6 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
-    
-    def not_found
-    	render :template => '/shared/404'
-    end
-  
+
 end
 
