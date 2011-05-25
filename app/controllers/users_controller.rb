@@ -64,8 +64,6 @@ class UsersController < ApplicationController
   
   
   def identificate 	
-  	Rails.logger.debug create_md5.inspect
-  	Rails.logger.debug params[:key].inspect
   	if create_md5 == params[:key]
   	 builder = Nokogiri::XML::Builder.new do |xml|
       xml.result {
@@ -85,6 +83,8 @@ class UsersController < ApplicationController
   	
   
   def success_payment
+  	Rails.logger.debug create_md5(params[:amount], params[:paymentid]).inspect
+  	Rails.logger.debug params[:key].inspect
   	if create_md5(params[:amount], params[:paymentid]) == params[:key]
   	  @user=User.find params[:userid]
   	  @user.balance+=params[:amount].to_f
