@@ -37,6 +37,7 @@
     save!
     user.reduce_chances 
     user.save!
+    `rm #{path}/skipfish#{id}.log`
     return true
   end  
   handle_asynchronously :skipfish
@@ -65,7 +66,12 @@
   def testing?
     status == 'testing'
   end  
+  
   def ready_to_check?
   	status == 'pending' or status == 'incorrect'
+  end
+  
+  def request?
+  	status == 'testing' or status == 'tested'
   end
 end

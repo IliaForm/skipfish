@@ -12,6 +12,7 @@
       flash[:notice] = "Login successful!"
       redirect_back_or_default account_url
     else
+      flash[:notice] = "Login unsuccessful!"
       render :action => :new
     end
   end

@@ -1,18 +1,10 @@
 ﻿#require 'open-uri'
 class SitesController < ApplicationController
 	before_filter :require_user    
-    before_filter :find_site, :only => [:edit, :show, :destroy]
+    before_filter :find_site, :only => [:edit, :update, :show, :destroy, :check, :start, :result, :final]
     before_filter :allow_to_edit, :only => :edit
     
- def find_site
-  @site = current_user.sites.find params[:id] rescue render :template => 'shared/404'
- end
- 
- def allow_to_edit
-   if @site.status == 'testing' 
-   render :template => '/shared/403'
-   end
- end 
+
  
  def new
    @site = @current_user.sites.new
@@ -35,8 +27,8 @@ class SitesController < ApplicationController
  end
  
   def update
-   @site = @current_user.sites.find params[:id] 
-   if @site.update_attributes params[:site]
+  	good_params=@site.ready_to_check? ? ["url", "slovar"] : ["slovar"]
+   if @site.update_attributes params[:site].slice *good_params
      flash[:notice] = "Site updated!"
      redirect_to @site 
    else
@@ -52,7 +44,6 @@ class SitesController < ApplicationController
  end
  
   def check
-    @site = @current_user.sites.find params[:id]
     @key=HTTParty.get(@site.url.chomp('/')+'/fish.txt').body
     if @key==@site.token
      @site.status='checked'
@@ -64,7 +55,6 @@ class SitesController < ApplicationController
   end
   
   def start
-    @site = @current_user.sites.find params[:id]
     @site.skipfish
     flash[:notice]='Проверка выполняется, ожидайте результата'
     redirect_to @site
@@ -72,14 +62,22 @@ class SitesController < ApplicationController
   
 	
   def result
-   @site = @current_user.sites.find params[:id]
    render :update do |page|
    	 page[:status].update @site.status
      page[:result].update @site.status == 'tested' ? link_to( 'результат', final_site_path(:id=>@site.id) ) : simple_format(@site.last_result)
    end 
   end
-  def final
-  	@site = @current_user.sites.find params[:id] 
+  def final 
   	render :layout => false
   end
- end
+  protected
+  
+  def find_site
+   @site = current_user.sites.find params[:id] rescue render :template => 'shared/404'
+  end
+ 
+  def allow_to_edit
+   render :template => '/shared/403' if @site.testing?
+  end
+ 
+end
