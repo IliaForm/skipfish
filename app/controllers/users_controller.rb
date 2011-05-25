@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   end	
   	
   
-  def success_payment
+  def payment
   	Rails.logger.debug create_md5(params[:amount], params[:paymentid]).inspect
   	Rails.logger.debug params[:key].inspect
   	if create_md5(params[:amount], params[:paymentid]) == params[:key]

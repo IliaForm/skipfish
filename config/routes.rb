@@ -8,7 +8,7 @@
 
   resource :account, :controller => "users" do
   	post :identificate, :on => :collection
-    post :success_payment, :on => :collection
+    post :payment, :on => :collection
   	put :buy_chances, :on => :member
   	get :pay, :on => :member
  	#match '/payment/(userid=:userid)&(key=:key)', :to => 'users#identificate', :via => :get
