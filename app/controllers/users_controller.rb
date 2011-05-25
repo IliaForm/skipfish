@@ -88,6 +88,7 @@ class UsersController < ApplicationController
   	if create_md5(params[:amount], params[:paymentid]) == params[:key]
   	  @user=User.find params[:userid]
   	  @user.balance+=params[:amount].to_f
+  	  @user.save
   	   builder = Nokogiri::XML::Builder.new do |xml|
       xml.result {
         xml.id 
