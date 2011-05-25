@@ -26,11 +26,11 @@
     path="#{Rails.root}/../../shared/sites/#{id}"
     `mkdir -p #{path}`
     p id
-    `cd #{path}/../../ && cp -rf skipfish-1.86b/* sites/#{id}`
+    `cd #{path}/../../ && cp -rf skipfish-1.88b/* sites/#{id}`
     results="#{path}/results"
     `cd #{path}/`
     `rm -rf #{results}`
-    `mkdir -p #{results}`  
+    #`mkdir -p #{results}`  
    	`cd #{path} && cp dictionaries/#{slovar}.wl skipfish.wl`
     `cd #{path} && ./skipfish -o results #{url} > skipfish#{id}.log`
     self.result = `cat #{results}/index.html`
