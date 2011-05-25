@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   
   def create_md5 amount='0', paymentid='0'
   	secretkey='eO6n2SIgu6QX4XE80NZvegbPjXBNt28C6uG'	
-	Digest::MD5.new(amount+params[:userid]+paymentid+secretkey)
+	Digest::MD5.new(amount.params[:userid].paymentid.secretkey)
   end
   
   
