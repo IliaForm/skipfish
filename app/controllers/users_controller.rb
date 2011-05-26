@@ -83,8 +83,6 @@ class UsersController < ApplicationController
   	
   
   def payment
-  	Rails.logger.debug create_md5(params[:amount], params[:paymentid]).inspect
-  	Rails.logger.debug params[:key].inspect
   	if create_md5(params[:amount], params[:paymentid]) == params[:key]
   	  @user=User.find params[:userid]
   	  @user.balance+=params[:amount].to_f
@@ -93,7 +91,6 @@ class UsersController < ApplicationController
       xml.result {
         xml.id 
         xml.code "YES"
-        xml.comment "Платёж произведён успешно"
       }    
       end
       render :xml => builder.to_xml
@@ -102,7 +99,6 @@ class UsersController < ApplicationController
       xml.result {
         xml.id 
         xml.code "NO"
-        xml.comment "Платёж не удался"
       }
       end
       render :xml => builder.to_xml

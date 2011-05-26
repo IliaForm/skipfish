@@ -14,6 +14,7 @@
   def russian_
     self.class.dictionaries[slovar]
   end
+  
   def self.dictionaries
     @dictionaries ||={ "minimal" => "Нормальная", "medium" => "Тщательная", "complete" => "Очень тщательная"}
   end
@@ -38,7 +39,7 @@
     save!
     user.reduce_chances 
     user.save!
-    `rm #{path}/skipfish#{id}.log`
+    `rm -rf #{path}/skipfish#{id}.log`
     return true
   end  
   handle_asynchronously :skipfish
