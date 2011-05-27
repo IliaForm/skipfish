@@ -25,7 +25,7 @@
     save!
     #return false if user.chances<1
     path="#{Rails.root}/../../shared/sites/#{id}"
-    pathp="#{Rails.root}/../../public/sites/#{id}"
+    pathp="#{Rails.root}/../../current/public/sites/#{id}"
     `mkdir -p #{path}`
     `mkdir -p #{pathp}`
     p id
