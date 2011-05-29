@@ -29,4 +29,14 @@ role :db,  '188.127.229.202', :primary => true # This is where Rails migrations 
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
  end
+ namespace :deploy do
+ 	
+ 	after "deploy :simlink" "deploy:sites:simlink"
+  	
+ 	desc "Link sites from shared to common"
+ 	task :simlink do
+ 	run  "ln -nfs #{shared_path}/sites #{current_path}/public/sites"	 	
+ 	end
+ end
+
  require "bundler/capistrano"

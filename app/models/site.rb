@@ -25,20 +25,16 @@
     save!
     #return false if user.chances<1
     path="#{Rails.root}/../../shared/sites/#{id}"
-    pathp="#{Rails.root}/public/sites/#{id}"
     `mkdir -p #{path}`
-    `mkdir -p #{pathp}`
     p id
     `cd #{path}/../../ && cp -rf skipfish-1.88b/* sites/#{id}`
     results="#{path}/results"
     `cd #{path}/`
     `rm -rf #{results}`
-    #`mkdir -p #{results}`  
+    `mkdir -p #{results}`  
    	`cd #{path} && cp dictionaries/#{slovar}.wl skipfish.wl`
     `cd #{path} && ./skipfish -o results #{url} > skipfish#{id}.log`
-    `cd #{results}/* && cp -rf #{pathp}`
     #self.result = `cat #{results}/index.html`
-    self.result = `cat #{pathp}/index.html`
     self.status = 'tested'
     save!
     user.reduce_chances 
