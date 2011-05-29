@@ -55,6 +55,8 @@ class SitesController < ApplicationController
   end
   
   def start
+    @site.status = 'testing'
+    @site.save!
     @site.skipfish
     flash[:notice]='Проверка выполняется, ожидайте результата'
     redirect_to @site
