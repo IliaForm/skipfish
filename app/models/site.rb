@@ -34,12 +34,13 @@
     `mkdir -p #{results}`  
    	`cd #{path} && cp dictionaries/#{slovar}.wl skipfish.wl`
     `cd #{path} && ./skipfish -o results #{url} > skipfish#{id}.log`
+    `rm -rf #{path}/skipfish#{id}.log`
     #self.result = `cat #{results}/index.html`
     self.status = 'tested'
     save!
     user.reduce_chances 
     user.save!
-    `rm -rf #{path}/skipfish#{id}.log`
+ 
     return true
   end  
   handle_asynchronously :skipfish
