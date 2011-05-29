@@ -22,7 +22,7 @@ role :db,  '188.127.229.202', :primary => true # This is where Rails migrations 
 # these http://github.com/rails/irs_process_scripts
 
  #If you are using Passenger mod_rails uncomment this:\
- after "deploy:simlink", "deploy:share"
+ after "deploy:symlink", "deploy:share"
  namespace :deploy do
    task :start do ; end
    task :stop do ; end
