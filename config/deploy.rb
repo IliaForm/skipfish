@@ -28,13 +28,11 @@ role :db,  '188.127.229.202', :primary => true # This is where Rails migrations 
    task :restart, :roles => :app, :except => { :no_release => true } do
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
- end
- namespace :deploy do
  	
- 	after "deploy :simlink" "deploy:sites:simlink"
+ 	after "deploy:simlink", "deploy:share"
   	
  	desc "Link sites from shared to common"
- 	task :simlink do
+ 	task :share do
  	run  "ln -nfs #{shared_path}/sites #{current_path}/public/sites"	 	
  	end
  end
