@@ -21,7 +21,8 @@ role :db,  '188.127.229.202', :primary => true # This is where Rails migrations 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
- #If you are using Passenger mod_rails uncomment this:
+ #If you are using Passenger mod_rails uncomment this:\
+ after "deploy:simlink", "deploy:share"
  namespace :deploy do
    task :start do ; end
    task :stop do ; end
@@ -29,7 +30,6 @@ role :db,  '188.127.229.202', :primary => true # This is where Rails migrations 
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
  	
- 	after "deploy:simlink", "deploy:share"
   	
  	desc "Link sites from shared to common"
  	task :share do
