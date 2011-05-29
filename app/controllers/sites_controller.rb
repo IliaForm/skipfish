@@ -64,7 +64,7 @@ class SitesController < ApplicationController
   def result
    render :update do |page|
    	 page[:status].update @site.status
-     page[:result].update @site.status == 'tested' ? link_to( 'результат', "/sites/#{@site.id}/results" ) : simple_format(@site.last_result)
+     page[:result].update @site.status == 'tested' ? link_to( 'результат', "/sites/#{@site.id}/results/" ) : simple_format(@site.last_result)
    end 
   end
   
