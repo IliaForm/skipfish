@@ -4,6 +4,7 @@
    put :start, :on => :member
    get :result, :on => :member
    get :final, :on => :member
+   match 'sites/:id' => 'sites#destroy', :via => :delete
   end
 
   resource :account, :controller => "users" do

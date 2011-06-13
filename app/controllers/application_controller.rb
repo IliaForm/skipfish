@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all
   helper_method :current_user_session, :current_user
-  
+    layout "layouts/applicationlena"
     
     def not_found
     	render :template => '/shared/404'

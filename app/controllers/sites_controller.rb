@@ -3,7 +3,7 @@ class SitesController < ApplicationController
 	before_filter :require_user    
     before_filter :find_site, :only => [:edit, :update, :show, :destroy, :check, :start, :result, :final]
     before_filter :allow_to_edit, :only => [:edit, :final]
-    
+      layout "layouts/applicationlena"
 
  
  def new
