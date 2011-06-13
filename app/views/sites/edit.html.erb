@@ -1,9 +1,12 @@
-<h1>Edit site</h1>
-
+<div class="mainContent">
+	<h3>Редактировать сайт:</h3>
+<ol>
 <% form_for @site do |f| %>
   <%= @site.errors.full_messages.first%>
   <%= render :partial => "form", :object => f %>
-  <%= f.submit "Update" %>
+  <input type="submit" id="addSite" value="Сохранить" class="button"/>
+  <% end %> 
+  </ol>
 
-<% end %>
 
+</div>
