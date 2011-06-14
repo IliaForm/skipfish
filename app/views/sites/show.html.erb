@@ -1,7 +1,7 @@
 <div class="mainContent">
 	<h3>Сайт:</h3>
 <p>
-	<div class="pageInfo">
+	<div class="pageInfo" id="show">
 		<div class="menu" >
   <b>URL:</b>
   
@@ -18,7 +18,7 @@
   <% if @site.ready_to_check? %> 
     <br> Для проверки сайта, пожалуйста положите в корень проекта файл с именем fish.txt и содержимым: <%=@site.token%>
     
-    <%= link_to 'Проверить', check_site_path(:id=>@site.id), :method => :put, :class=>'button', :id=>'addSite'%>
+    <%= link_to 'Проверить', check_site_path(:id=>@site.id), :method => :put, :class=>'button', :id=>"addsite"%>
   <%end%>
   
 </p>
@@ -29,7 +29,7 @@
 </div>
 </div>
  <% if @site.ready_to_start? %>
-   <%= button_to 'Start', start_site_path(:id=>@site.id), :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put %> 
+   <%= link_to 'Тестировать', start_site_path(:id=>@site.id), :class=>'button', :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put %> 
   <%#end%>
  <% if @site.request?%>
 <div id="result"></div>

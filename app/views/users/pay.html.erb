@@ -4,12 +4,12 @@
 <input type="hidden" name="order_id" value=""><br>
 <input type="hidden" name="nickname" value="<%=current_user.id%>">  
 <div class="mainContent">
-	<h3>Пополнить баланс:</h3>
+	<h3 >Пополнить баланс:</h3>
 <div class="pageInfo">
-<ol>
+<ol id="pay" >
   
-      <h3>Сумма</h3><input type="text" name="amount" value=""><br>
-       Способ оплаты: <select name="mode_type">
+     <h3 id="summa">Сумма</h3><input id="summ" type="text" name="amount" value=""><br>
+    <br>   Способ оплаты: <select name="mode_type">
 <option value="2">WebMoney</option>
 <option value="7">Yandex деньги</option>
 <option value="8">Банковские карты</option>
