@@ -46,4 +46,9 @@ a{color:#77a8d7}
 #form .pageInfo{padding: 16px 10px 1px}
 #pay{padding-bottom: 10px; padding-top: 10px}
 #show{  padding-left: 10px; padding-top: 10px;}
- 
+ .notes{position:absolute;
+  text-align:center;
+  top:102px;
+  width:100%;}
+ .delete a{color:red}
+ #show .menu p{margin-top:4px;}

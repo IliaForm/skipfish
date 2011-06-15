@@ -1,8 +1,8 @@
-<h1>Edit My Account</h1>
+
 
 <% form_for @user, :url => account_path do |f| %>
   <%= @user.errors.full_messages.first%>
   <%= render :partial => "form", :object => f %>
-  <%= f.submit "Update" %>
+  <input type="submit" id="addSite" value="Сохранить" class="button"/>
 <% end %>
 

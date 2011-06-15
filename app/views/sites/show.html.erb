@@ -15,19 +15,26 @@
 <p>
   <b>Статус:</b>
  <span id="status"> <%= @site.status %></span>
-  <% if @site.ready_to_check? %> 
-    <br> Для проверки сайта, пожалуйста положите в корень проекта файл с именем fish.txt и содержимым: <%=@site.token%>
-    
-    <%= link_to 'Проверить', check_site_path(:id=>@site.id), :method => :put, :class=>'button', :id=>"addsite"%>
-  <%end%>
+
   
 </p>
 <!--<b>результат:</b>
 <% #if @site.ready_to_view_result? %>
   <%#= link_to 'результат', final_site_path(:id=>@site.id)%>
  <%# end%> -->
+  <% if @site.ready_to_check? %> 
+    <br> Для проверки сайта, пожалуйста положите в корень проекта файл с именем fish.txt и содержимым: <%=@site.token%>
+    
+   
+  <%end%>
 </div>
+ 
 </div>
+
+<% if @site.ready_to_check? %> 
+    
+    <%= link_to 'Проверить', check_site_path(:id=>@site.id), :method => :put, :class=>'button', :id=>"addsite"%>
+  <%end%>
  <% if @site.ready_to_start? %>
    <%= link_to 'Тестировать', start_site_path(:id=>@site.id), :class=>'button', :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put %> 
   <%#end%>
