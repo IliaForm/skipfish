@@ -1,6 +1,10 @@
+<div class="mainContent" id="form">
+	<div class="pageInfo">
 <% if @site.new_record? or @site.ready_to_check?%>
-<%= form.label :url %><br />
-<%= form.text_field :url %><br />
+<%= form.label :url %>
+<%= form.text_field :url %><br>
 <%end%>
-<%= form.label :'Выберите тип проверки' %><br />
+<br><%= form.label :'Тип проверки:' %>
  <%= form.select :slovar, [["Нормальная","minimal"], ["Тщательная","medium"], ["Очень тщательная", "complete"]]%>
+</div>
+ </div>

@@ -1,13 +1,12 @@
-<h1>Login</h1>
 
 <%= form_for @user_session, :url => user_session_path do |f| %>
-  <%= f.label :login %><br />
+  <%= f.label :'Логин' %><br />
   <%= f.text_field :login %><br />
   <br />
-  <%= f.label :password %><br />
+  <%= f.label :'Пароль' %><br />
   <%= f.password_field :password %><br />
   <br />
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
+  <%= f.check_box :remember_me %><%= f.label :' Запомнить меня' %><br />
   <br />
-  <%= f.submit "Login" %>
+  <input type="submit" id="addSite" value="Войти" class="button"/>
 <% end %>

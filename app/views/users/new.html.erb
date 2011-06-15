@@ -1,7 +1,7 @@
-<h1>Register</h1>
+
 
 <% form_for @user, :url => account_path do |f| %>
   <%= @user.errors.full_messages.first %>
   <%= render :partial => "form", :object => f %>
-  <%= f.submit "Register" %>
+  <input type="submit" id="addSite" value="Зарегестрироваться" class="button"/>
 <% end %>

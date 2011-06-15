@@ -3,8 +3,13 @@
 <input type="hidden" name="source" value="skipfish">
 <input type="hidden" name="order_id" value=""><br>
 <input type="hidden" name="nickname" value="<%=current_user.id%>">  
-Сумма к оплате, в валюте платёжной системы: <input type="text" name="amount" value=""><br>
-Способ оплаты: <select name="mode_type">
+<div class="mainContent">
+	<h3 >Пополнить баланс:</h3>
+<div class="pageInfo">
+<ol id="pay" >
+  
+     <h3 id="summa">Сумма</h3><input id="summ" type="text" name="amount" value=""><br>
+    <br>   Способ оплаты: <select name="mode_type">
 <option value="2">WebMoney</option>
 <option value="7">Yandex деньги</option>
 <option value="8">Банковские карты</option>
@@ -17,6 +22,6 @@
 <option value="48">ВТБ24</option>
 <option value="50">Мобильный Платеж МТС</option>
 <br>
-</select>
-<input type="submit" value="Оплатить!">
-</form>
+</select></div>
+<input type="submit" id="addSite" value="Оплатить" class="button"/>
+

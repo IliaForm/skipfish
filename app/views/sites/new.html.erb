@@ -1,7 +1,10 @@
-<h1>Add site</h1>
+<div class="mainContent" id="newSite">
+	<h3>Добавить сайт:</h3>
 <p>Cайт должен начинаться с http://</p>
 <% form_for @site do |f| %>
   <%= @site.errors.full_messages.first %>
   <%= render :partial => "form", :object => f %>
-  <%= f.submit "Add" %>
+  <input type="submit" id="addSite" value="Сохранить" class="button"/>
 <% end%>
+</div>
+

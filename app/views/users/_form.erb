@@ -1,8 +1,8 @@
-<%= form.label :login %><br />
+<%= form.label :'Логин' %><br />
 <%= form.text_field :login %><br />
 <br />
-<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
+<%= form.label :"Пароль", form.object.new_record? ? nil : "Сменить пароль" %><br />
 <%= form.password_field :password %><br />
 <br />
-<%= form.label :password_confirmation %><br />
+<%= form.label :'Ещё раз' %><br />
 <%= form.password_field :password_confirmation %><br />

@@ -1,7 +1,7 @@
 ﻿class UserSessionsController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
-  
+    layout "layouts/applicationlena"
   def new
     @user_session = UserSession.new
   end
@@ -10,7 +10,7 @@
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful!"
-      redirect_back_or_default account_url
+      redirect_to account_url
     else
       flash[:notice] = "Login unsuccessful!"
       render :action => :new

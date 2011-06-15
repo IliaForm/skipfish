@@ -1,58 +1,32 @@
-<p>
-  <b>Баланс:</b>
-  <%= @user.balance %>
-</p>
+<div class="sideInfo">
+	<div>
+		<span>Баланс:<%= @user.balance %> </span><%= link_to 'Пополнить', pay_account_path, :method => :get%>
+	</div>
+	<div>
+		<span>Попытки:<%= @user.chances %> </span><%= link_to 'Купить ещё', buy_chances_account_path, :method => :put%>
+	</div>
 
-<p>
-  <b>Попытки:</b>
-  <%= @user.chances %> <%= link_to 'Купить попытку', buy_chances_account_path, :method => :put%>
-</p>
-<!--<p>
-  <b>Login count:</b>
-  <%= @user.login_count %>
-</p>!-->
-
-<p>
-  <b> <%=@user.login %> sites:</b>
- <%if @user.sites.blank?%>
+</div>
+<div class="mainContent">
+	<h3>Сайты: <%if @user.sites.blank?%>
 <p>У Вас пока нет сайтов</p>
-<%end%> 
-<ul>
-<% for site in @user.sites do %>
-<li> <%=site.url%> <%= link_to 'Show site', site_path(:id=>site.id)%>
-	<% unless site.testing?%> <%= link_to 'Edit', edit_site_path(:id=>site.id)%><%end%>
-<%= link_to "Delete site", site,
-          :confirm => "Are you sure?", :method => :delete %> <br>Статус: <%=site.status%></li>
-<%end%>
-</ul>
-<%= link_to 'Add site', new_site_path%>
-</p>
-<%= button_to 'Пополнить баланс', pay_account_path, :method => :get%>
-
- <!--<p>
- <b>Last request at:</b>
-  <%= @user.last_request_at %>
-</p>
-
-<p>
-  <b>Last login at:</b>
-  <%= @user.last_login_at %>
-</p>
-
-<p>
-  <b>Current login at:</b>
-  <%= @user.current_login_at %>
-</p>
-
-<p>
-  <b>Last login ip:</b>
-  <%= @user.last_login_ip %>
-</p>
-
-<p>
-  <b>Current login ip:</b>
-  <%= @user.current_login_ip %>
-</p>
-!-->
-
-
+<%end%> </h3>
+	<div class="pageInfo">
+		<ol><% for site in @user.sites do %>
+			
+		<li> <%=site.url%><div class="menu" >
+			<ul>
+			 <li><%= link_to 'Просмотреть', site_path(:id=>site.id)%></li>
+				
+	         <% unless site.testing?%><li> <%= link_to 'Редактировать', edit_site_path(:id=>site.id)%></li><%end%>
+	             
+           <li class="delete"><%= link_to 'Удалить', site, :confirm => 'Are you sure?', :method => :delete %> </li>
+           </ul>
+            </div>
+            <div class="status">Статус: <em><%=site.status%></em></div>
+        
+        <%end%>
+        	</ol>
+	</div>
+	<%= link_to 'Добавить сайт', new_site_path , :class=>'button', :id=>'addSite'%>
+</div>

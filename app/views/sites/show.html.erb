@@ -1,33 +1,46 @@
-
+<div class="mainContent">
+	<h3>Сайт:</h3>
 <p>
-  <b>url:</b>
+	<div class="pageInfo" id="show">
+		<div class="menu" >
+  <b>URL:</b>
   
-  <%= @site.url %>
+  <%= @site.url %><br>
 </p>
 <p> 
   <b>Тип проверки:</b>
-  <%=@site.russian_%>
+  <%=@site.russian_%><br>
 </p>
 
 <p>
-  <b>Site status:</b>
+  <b>Статус:</b>
  <span id="status"> <%= @site.status %></span>
-  <% if @site.ready_to_check? %> 
-    <br> Для проверки сайта, пожалуйста положите в корень проекта файл с именем fish.txt и содержимым: <%=@site.token%>
-    <%= button_to 'Check', check_site_path(:id=>@site.id),  :method => :put%> 
-  <%end%>
+
   
 </p>
 <!--<b>результат:</b>
 <% #if @site.ready_to_view_result? %>
   <%#= link_to 'результат', final_site_path(:id=>@site.id)%>
  <%# end%> -->
+  <% if @site.ready_to_check? %> 
+    <br> Для проверки сайта, пожалуйста положите в корень проекта файл с именем fish.txt и содержимым: <%=@site.token%>
+    
+   
+  <%end%>
+</div>
+ 
+</div>
 
-
- <% #if @site.ready_to_start? %>
-   <%= button_to 'Start', start_site_path(:id=>@site.id), :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put %> 
+<% if @site.ready_to_check? %> 
+    
+    <%= link_to 'Проверить', check_site_path(:id=>@site.id), :method => :put, :class=>'button', :id=>"addsite"%>
+  <%end%>
+ <% if @site.ready_to_start? %>
+   <%= link_to 'Тестировать', start_site_path(:id=>@site.id), :class=>'button', :id => "start", :disable_with => "Start", :disabled => @site.testing?, :method => :put %> 
   <%#end%>
  <% if @site.request?%>
 <div id="result"></div>
 <%= periodically_call_remote  :method => :get, :url => result_site_path(:id=>@site.id), :frequency => 1%>
+<%end%>
+</div>
 <%end%>

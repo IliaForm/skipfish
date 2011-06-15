@@ -1,0 +1,54 @@
+html{background-color: #f4f3f0}
+
+body{font-family: Tahoma, Geneva,sans-serif}
+.header{padding: 57px 0 0 64px;}
+.menu ul li{float:left;
+				border-left: 2px solid black;padding-top:0 !important;}
+.clear{clear:both;}
+.outer{ padding: 26px 0 0 64px;}
+#mainMenu li:first-child{border-left:none}
+#mainMenu{font-size: 22px;margin: 41px 0 0 -8px;}
+a{color:#77a8d7}
+#mainMenu li{height: 21px;
+    padding: 0 8px;}
+    #mainMenu li span{ position: relative;
+    top: -3px;}
+.outer{font-size: 14px;}
+.status{color: #848484;
+    margin-top: 7px;}
+.pageInfo{ background-color: white;
+    padding: 0px 0 0px 14px;
+    position: relative;
+    top: 10px;
+    width: 520px;}
+.pageInfo ol{margin-left: 20px}
+.sideInfo span{border-right:2px solid black;padding-right: 3px;margin-right: 3px}
+.sideInfo div{margin-bottom: 5px;}
+.pageInfo .menu li{display: inline;float:none; padding-left: 7px;}
+.pageInfo .menu {display: inline}
+.pageInfo .menu ul{display:inline}
+.mainContent{padding-left: 2px;
+    position: relative;
+    top: 21px;}
+.mainContent ol li{margin-bottom: 14px;}
+.button { background-image: url("/images/button_bg.png");
+    border: medium none;
+   
+    margin: 20px 0 30px;
+    color:white;font-size: 22px;padding: 0 13px;
+    top: 20px; padding-bottom: 5px; position:relative;
+    text-decoration: none;}
+.pageInfo ol li:first-child{padding-top: 16px}
+.pageInfo ol li:last-child{padding-bottom: 1px}
+#site_url{height:30px;margin-left: 10px;font-size: 14px;padding-left: 14px}
+#summ{height:20px;margin-left: 55px;font-size: 14px;padding-left: 124px; margin-top: -20px;}
+#newSite .pageInfo{padding: 16px 0 1px 10px}
+#form .pageInfo{padding: 16px 10px 1px}
+#pay{padding-bottom: 10px; padding-top: 10px}
+#show{  padding-left: 10px; padding-top: 10px;}
+ .notes{position:absolute;
+  text-align:center;
+  top:102px;
+  width:100%;}
+ .delete a{color:red}
+ #show .menu p{margin-top:4px;}
