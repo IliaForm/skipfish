@@ -3,7 +3,11 @@ html{background-color: #f4f3f0}
 body{font-family: Tahoma, Geneva,sans-serif}
 .header{padding: 57px 0 0 64px;}
 .menu ul li{float:left;
+
 				border-left: 2px solid black;padding-top:0 !important;}
+
+				border-left: 2px solid black}
+
 .clear{clear:both;}
 .outer{ padding: 26px 0 0 64px;}
 #mainMenu li:first-child{border-left:none}
@@ -17,7 +21,11 @@ a{color:#77a8d7}
 .status{color: #848484;
     margin-top: 7px;}
 .pageInfo{ background-color: white;
+
     padding: 0px 0 0px 14px;
+
+    padding: 16px 0 1px 14px;
+
     position: relative;
     top: 10px;
     width: 520px;}
@@ -33,11 +41,14 @@ a{color:#77a8d7}
 .mainContent ol li{margin-bottom: 14px;}
 .button { background-image: url("/images/button_bg.png");
     border: medium none;
-   
+
+    height: 42px;
+
     margin: 20px 0 30px;
     color:white;font-size: 22px;padding: 0 13px;
     top: 20px; padding-bottom: 5px; position:relative;
     text-decoration: none;}
+
 .pageInfo ol li:first-child{padding-top: 16px}
 .pageInfo ol li:last-child{padding-bottom: 1px}
 #site_url{height:30px;margin-left: 10px;font-size: 14px;padding-left: 14px}
