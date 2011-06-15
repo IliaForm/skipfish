@@ -24,7 +24,7 @@ a{color:#77a8d7}
 
     padding: 0px 0 0px 14px;
 
-    padding: 16px 0 1px 14px;
+    padding: 0px 0 0px 14px;
 
     position: relative;
     top: 10px;
@@ -63,3 +63,6 @@ a{color:#77a8d7}
   width:100%;}
  .delete a{color:red}
  #show .menu p{margin-top:4px;}
+.pageInfo ol li:first-child{padding-top:16px;}
+.pageInfo ol li:last-child{padding-bottom:16px;}
+.pageInfo ol ul li:last-child{padding-bottom:0!important}
