@@ -25,8 +25,8 @@
 	<img id="logo" src="/images/skip_fish_logo.png"/>
 	<div class="menu" id="mainMenu">
 		<ul><% if !current_user %>
-			<li><span><%= link_to "Register", new_account_path %> </span></li>
-			<li><span><%= link_to "Log In", new_user_session_path %> </span></li>
+			<li><span><%= link_to "Регистрация", new_account_path %> </span></li>
+			<li><span><%= link_to "Авторизация", new_user_session_path %> </span></li>
 			<% else %>
 			<li><span><%= link_to_unless_current "Мой аккаунт", account_path %></span></li>
 			<li><span><%= link_to 'Редактировать', edit_account_path %></span></li>
