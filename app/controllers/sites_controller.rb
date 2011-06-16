@@ -14,7 +14,7 @@ class SitesController < ApplicationController
    @site = @current_user.sites.new params[:site]
    if @site.save
      flash[:notice] = "Site created!"
-     redirect_back_or_default account_url
+     redirect_to account_url
    else
      render :action => :new
    end
