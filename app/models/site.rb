@@ -6,7 +6,7 @@
   before_create :set_status_and_token
   
   def set_status_and_token
-   self.status = "ожидает проверки"
+   self.status = 'ожидает проверки'
    self.token = ('0'..'z').entries.select{ |e| e[/\w|\d/] }.shuffle.join
   end
   
