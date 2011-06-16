@@ -23,7 +23,7 @@
   	self.status = 'тестируется'
     p status, id
     save!
-    #return false if user.chances<1
+    return false if user.chances<1
     path="#{Rails.root}/../../shared/sites/#{id}"
     `mkdir -p #{path}`
     p id
