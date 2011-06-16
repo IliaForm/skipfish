@@ -51,7 +51,7 @@ class SitesController < ApplicationController
      @site.status='не прошёл проверку'
 	  end
 	 @site.save
-   redirect_back_or_default site_url(:id=>@site.id)
+   redirect_to site_url(:id=>@site.id)
   end
   
   def start
