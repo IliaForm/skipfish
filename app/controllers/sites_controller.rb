@@ -46,16 +46,16 @@ class SitesController < ApplicationController
   def check
     @key=HTTParty.get(@site.url.chomp('/')+'/fish.txt').body
     if @key==@site.token
-     @site.status='checked'
+     @site.status='проверен'
     else
-     @site.status='incorrect'
+     @site.status='не прошёл проверку'
 	  end
 	 @site.save
    redirect_back_or_default site_url(:id=>@site.id)
   end
   
   def start
-    @site.status = 'testing'
+    @site.status = 'тестируется'
     @site.save!
     @site.skipfish
     flash[:notice]='Проверка выполняется, ожидайте результата'
@@ -66,7 +66,7 @@ class SitesController < ApplicationController
   def result
    render :update do |page|
    	 page[:status].update @site.status
-     page[:result].update @site.status == 'tested' ? link_to( 'результат', "/sites/#{@site.id}/results/" ) : simple_format(@site.last_result)
+     page[:result].update @site.status == 'протестирован' ? link_to( 'результат', "/sites/#{@site.id}/results/" ) : simple_format(@site.last_result)
    end 
   end
   

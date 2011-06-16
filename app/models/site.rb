@@ -6,7 +6,7 @@
   before_create :set_status_and_token
   
   def set_status_and_token
-   self.status = "pending"
+   self.status = "ожидает проверки"
    self.token = ('0'..'z').entries.select{ |e| e[/\w|\d/] }.shuffle.join
   end
   
@@ -20,7 +20,7 @@
   end
 
   def skipfish
-  	self.status = 'testing'
+  	self.status = 'тестируется'
     p status, id
     save!
     #return false if user.chances<1
@@ -36,7 +36,7 @@
     `cd #{path} && ./skipfish -o results #{url} > skipfish#{id}.log`
     `rm -rf #{path}/skipfish#{id}.log`
     #self.result = `cat #{results}/index.html`
-    self.status = 'tested'
+    self.status = 'протестирован'
     save!
     user.reduce_chances 
     user.save!
@@ -46,11 +46,11 @@
   handle_asynchronously :skipfish
   
   def ready_to_start?
-    status == 'checked' or status == 'tested'
+    status == 'проверен' or status == 'протестирован'
   end  
   
   def ready_to_view_result?
-  	status == 'tested'
+  	status == 'протестирован'
   end
   
   def last_result
@@ -67,14 +67,14 @@
   end
   
   def testing?
-    status == 'testing'
+    status == 'тестируется'
   end  
   
   def ready_to_check?
-  	status == 'pending' or status == 'incorrect'
+  	status == 'ожидает проверки' or status == 'не прошёл проверку'
   end
   
   def request?
-  	status == 'testing' or status == 'tested'
+  	status == 'тестируется' or status == 'протестирован'
   end
 end
