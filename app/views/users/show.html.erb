@@ -1,9 +1,9 @@
 <div class="sideInfo">
 	<div>
-		<span>Баланс:<%= @user.balance %> </span><%= link_to 'Пополнить', pay_account_path, :method => :get%>
+		<span>Баланс: <%= @user.balance %> </span><%= link_to 'Пополнить', pay_account_path, :method => :get%>
 	</div>
 	<div>
-		<span>Попытки:<%= @user.chances %> </span><%= link_to 'Купить ещё', buy_chances_account_path, :method => :put%>
+		<span>Попытки: <%= @user.chances %> </span><%= link_to 'Купить ещё', buy_chances_account_path, :method => :put%>
 	</div>
 
 </div>

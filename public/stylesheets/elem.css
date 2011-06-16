@@ -9,7 +9,7 @@ body{font-family: Tahoma, Geneva,sans-serif}
 				border-left: 2px solid black}
 
 .clear{clear:both;}
-.outer{ padding: 26px 0 0 64px;}
+.outer{ padding: 26px 0 0 64px; padding-top: 45px}
 #mainMenu li:first-child{border-left:none}
 #mainMenu{font-size: 22px;margin: 41px 0 0 -8px;}
 a{color:#77a8d7}
