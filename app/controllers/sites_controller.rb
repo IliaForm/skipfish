@@ -40,7 +40,7 @@ class SitesController < ApplicationController
   @site.destroy
      flash[:notice] = "Site deleted!"
      #render :action => :index
-     redirect_back_or_default account_url
+     redirect_to account_url
  end
  
   def check
